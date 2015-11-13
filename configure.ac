@@ -17,10 +17,11 @@ then
 fi
 
 AC_PATH_PROG([pandoc], [pandoc])
-if test "x$asciidoc" = x
+if test "x$pandoc" = x
 then
-	AC_MSG_ERROR([asciidoc not found])
+	AC_MSG_ERROR([pandoc not found])
 fi
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile
+                 subarea/Makefile])
 AC_OUTPUT
