@@ -94,4 +94,4 @@ ilat=$4
 infile=$5
 
 LOG4C_APPENDER=stderr LOG4C_PRIORITY=ERROR \
-vgd6_gepoint -v inter -z $z -f $f -a $ilon -b $ilat $infile -
+vg6d_getpoint -v inter -z $z -f $f -a $ilon -b $ilat $infile -
