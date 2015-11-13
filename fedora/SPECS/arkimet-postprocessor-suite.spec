@@ -1,6 +1,6 @@
 Name:           arkimet-postprocessor-suite
 Version:        0.1
-Release:        1%{?dist}
+Release:        1
 Summary:        Suite of Arkimet postprocessors
 Group:          Applications/Meteo
 License:        GPL

@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT([arkimet-postprocess-suite], [0.1], [edigiacomo@arpa.emr.it])
+AC_INIT([arkimet-postprocessor-suite], [0.1], [edigiacomo@arpa.emr.it])
 AM_INIT_AUTOMAKE([foreign])
 
 AC_PATH_PROG([ARKI_XARGS], [arki-xargs])
