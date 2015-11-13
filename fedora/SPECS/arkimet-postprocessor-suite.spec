@@ -50,9 +50,7 @@ Crop a subarea of a GRIB file
 %defattr(-,root,root,-)
 %{_libdir}/arkimet/subarea
 %dir %{_datadir}/doc/%{name}
-%doc %{_mandir}/man7/arkimet-postprocess-subarea.7.gz
 %doc %{_datadir}/doc/%{name}/arkimet-postprocess-subarea.7.md
-%doc %{_datadir}/doc/%{name}/arkimet-postprocess-subarea.7.html
 
 
 %package singlepoint
@@ -66,9 +64,7 @@ Extract a single point from a GRIB file in various formats
 %files singlepoint
 %{_libdir}/arkimet/singlepoint
 %dir %{_datadir}/doc/%{name}
-%doc %{_mandir}/man7/arkimet-postprocess-singlepoint.7.gz
 %doc %{_datadir}/doc/%{name}/arkimet-postprocess-singlepoint.7.md
-%doc %{_datadir}/doc/%{name}/arkimet-postprocess-singlepoint.7.html
 
 %changelog
 * Fri Nov 13 2015 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.1-1
