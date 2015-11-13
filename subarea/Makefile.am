@@ -1,16 +1,14 @@
-postprocdir = $(libdir)/arkimet
+include $(top_srcdir)/common.mk
 
 dist_postproc_SCRIPTS = $(top_srcdir)/subarea
 
 TESTS = test-subarea.sh
 
+dist_doc_DATA = arkimet-postprocess-subarea.7.md
+
+nodist_doc_DATA = arkimet-postprocess-subarea.7.html
+
 nodist_man7_MANS = arkimet-postprocess-subarea.7
-
-arkimet-postprocess-subarea.7.html: arkimet-postprocess-subarea.7.md
-	pandoc -s $< -o $@
-
-arkimet-postprocess-subarea.7: arkimet-postprocess-subarea.7.md
-	pandoc -s -t man $< -o $@
 
 EXTRA_DIST = \
 	     test-subarea.sh \
