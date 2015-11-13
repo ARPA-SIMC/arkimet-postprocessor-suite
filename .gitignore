@@ -7,5 +7,9 @@
 /missing
 /subarea/arkimet-postprocess-subarea.7
 /subarea/arkimet-postprocess-subarea.7.html
+/subarea/test-subarea.sh.log
+/subarea/test-subarea.sh.trs
+/subarea/test-suite.log
+/test-driver
 Makefile
 Makefile.in
