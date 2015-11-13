@@ -4,6 +4,6 @@ postproc_SCRIPTS = singlepoint
 
 TESTS = test-singlepoint.sh
 
-dist_doc_DATA = arkimet-postprocess-singlepoint.7.md
+dist_doc_DATA = singlepoint.md
 
 EXTRA_DIST = singlepoint test-singlepoint.sh test.grib1
