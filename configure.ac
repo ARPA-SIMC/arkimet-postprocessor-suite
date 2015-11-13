@@ -23,5 +23,6 @@ then
 fi
 
 AC_CONFIG_FILES([Makefile
-                 subarea/Makefile])
+                 subarea/Makefile
+                 singlepoint/Makefile])
 AC_OUTPUT

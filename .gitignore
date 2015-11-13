@@ -5,6 +5,11 @@
 /configure
 /install-sh
 /missing
+/singlepoint/arkimet-postprocess-singlepoint.7
+/singlepoint/arkimet-postprocess-singlepoint.7.html
+/singlepoint/test-singlepoint.sh.log
+/singlepoint/test-singlepoint.sh.trs
+/singlepoint/test-suite.log
 /subarea/arkimet-postprocess-subarea.7
 /subarea/arkimet-postprocess-subarea.7.html
 /subarea/test-subarea.sh.log

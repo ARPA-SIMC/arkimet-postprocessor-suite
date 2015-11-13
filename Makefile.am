@@ -1,1 +1,1 @@
-SUBDIRS = subarea
+SUBDIRS = subarea singlepoint
