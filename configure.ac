@@ -15,7 +15,11 @@ if test x$VG6D_SUBAREA = x
 then
 	AC_MSG_ERROR([vg6d_subarea not found])
 fi
-
+AC_PATH_PROG([METEO_VM2_TO_BUFR], [meteo-vm2-to-bufr])
+if test x$METEO_VM2_TO_BUFR = x
+then
+    AC_MSG_ERROR([meteo-vm2-to-bufr not found])
+fi
 AC_PATH_PROG([pandoc], [pandoc])
 if test "x$pandoc" = x
 then

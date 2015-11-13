@@ -1,0 +1,27 @@
+# NAME
+
+arkimet-postprocess-bufr - arkimet postprocessor to serialize VM2 data in JSON format.
+
+# SYNOPSYS
+
+`bufr`
+
+# DESCRIPTION
+
+Converts VM2 files in BUFR format.
+
+The postprocessor is invoked by `arki-query`:
+
+    arki-query --postproc="bufr" QUERY DATASET
+
+# SEE ALSO
+
+`meteo-vm2-to-bufr` (1)
+
+# AUTHOR
+
+Written by Emanuele Di Giacomo <edigiacomo@arpa.emr.it>
+
+# COPYING
+
+Copyright \(C) 2014 ARPA-SIMC <urpsim@smr.arpa.emr.it>
