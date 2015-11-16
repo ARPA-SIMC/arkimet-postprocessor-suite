@@ -1,1 +1,1 @@
-SUBDIRS = subarea singlepoint
+SUBDIRS = subarea singlepoint bufr
