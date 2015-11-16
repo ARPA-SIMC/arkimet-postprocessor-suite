@@ -40,6 +40,6 @@ fi
 AC_CONFIG_FILES([Makefile
                  subarea/Makefile
                  singlepoint/Makefile
-                 buf/Makefile
+                 bufr/Makefile
                  json/Makefile])
 AC_OUTPUT
