@@ -25,8 +25,21 @@ if test x$METEO_VM2_TO_BUFR = x
 then
     AC_MSG_ERROR([meteo-vm2-to-bufr not found])
 fi
+AC_PATH_PROG([DBA_QCFILTER], [dba_qcfilter])
+if test x$DBA_QCFILTER = x
+then
+    AC_MSG_ERROR([dba_qcfilter not found])
+fi
+AC_PATH_PROG([DBAMSG], [dbamsg])
+if test x$DBAMSG = x
+then
+    AC_MSG_ERROR([dbamsg not found])
+fi
+
 
 AC_CONFIG_FILES([Makefile
                  subarea/Makefile
-                 singlepoint/Makefile])
+                 singlepoint/Makefile
+                 buf/Makefile
+                 json/Makefile])
 AC_OUTPUT

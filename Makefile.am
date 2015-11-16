@@ -1,1 +1,1 @@
-SUBDIRS = subarea singlepoint bufr
+SUBDIRS = subarea singlepoint bufr json
