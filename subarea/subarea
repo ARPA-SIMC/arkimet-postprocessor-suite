@@ -22,28 +22,28 @@
 
 function print_usage()
 {
-	printf "Usage $0 MINLON MINLAT MAXLON MAXLAT\n"
+    printf "Usage $0 MINLON MINLAT MAXLON MAXLAT\n"
 }
 
 # called without arki-xargs (arki-query --postproc=subarea)
 if [ x"$ARKI_XARGS_FORMAT" == x ]
 then
-	# Controllo che i parametri siano esattamente 4
-	[[ $# -eq 4 ]] || { print_usage >&2 ; exit 1 ; }
+    # Controllo che i parametri siano esattamente 4
+    [[ $# -eq 4 ]] || { print_usage >&2 ; exit 1 ; }
         exec arki-xargs --max-size=1M -- $0 $@
 fi
 
 subareafile=$(mktemp)
 cleanup()
 {
-	rm -f $subareafile
+    rm -f $subareafile
 }
 trap cleanup EXIT
 
 params="-a $1 -b $2 -c $3 -d $4 $5"
 LOG4C_APPENDER=stderr LOG4C_PRIORITY=ERROR \
 vg6d_subarea \
-	-v zoom \
-	-z coord \
-	-a $1 -b $2 -c $3 -d $4 \
-	-- $5 $subareafile && cat $subareafile
+    -v zoom \
+    -z coord \
+    -a $1 -b $2 -c $3 -d $4 \
+    -- $5 $subareafile && cat $subareafile
