@@ -19,10 +19,8 @@ Suite of Arkimet postprocessors
 * bufr
 * json
 
-
 %prep
 %setup -q
-
 
 %build
 %configure
@@ -38,7 +36,7 @@ rm -rf %{buildroot}
 %clean
 rm -rf %{buildroot}
 
-%files subarea
+%files
 %defattr(-,root,root,-)
 %{_libdir}/arkimet/subarea
 %dir %{_datadir}/doc/%{name}
