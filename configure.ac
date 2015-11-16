@@ -15,15 +15,15 @@ if test x$VG6D_SUBAREA = x
 then
 	AC_MSG_ERROR([vg6d_subarea not found])
 fi
+AC_PATH_PROG([BUFR2JSON], [bufr2json])
+if test x$BUFR2JSON = x
+then
+    AC_MSG_ERROR([bufr2json not found])
+fi
 AC_PATH_PROG([METEO_VM2_TO_BUFR], [meteo-vm2-to-bufr])
 if test x$METEO_VM2_TO_BUFR = x
 then
     AC_MSG_ERROR([meteo-vm2-to-bufr not found])
-fi
-AC_PATH_PROG([pandoc], [pandoc])
-if test "x$pandoc" = x
-then
-	AC_MSG_ERROR([pandoc not found])
 fi
 
 AC_CONFIG_FILES([Makefile
