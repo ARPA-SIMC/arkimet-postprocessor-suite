@@ -1,9 +1,9 @@
 include $(top_srcdir)/common.mk
 
-postproc_SCRIPTS = singlepoint
-
-TESTS = test-singlepoint.sh
+dist_postproc_SCRIPTS = singlepoint
 
 dist_doc_DATA = singlepoint.md
 
-EXTRA_DIST = singlepoint test-singlepoint.sh test.grib1
+TESTS = test-singlepoint.sh
+
+EXTRA_DIST = test-singlepoint.sh test.grib1
