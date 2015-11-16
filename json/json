@@ -55,26 +55,23 @@ then
                 ;;
         esac
     done
-    exec arki-xargs --max-size=1M $0 $jsontype $filtertype
+
+    case $jsontype in
+        dbajson) jsonconverter="dbamsg dump --json" ;;
+        geojson) jsonconverter="bufr2json" ;;
+    esac
+
+    case $filtertype in
+        skip) qcfilter="dba_qcfilter" ;;
+        none) qcfilter="cat" ;;
+        preserve) qcfilter="dba_qcfilter --preserve" ;;
+    esac
+
+    exec arki-xargs --max-size=1M $0 | $qcfilter | $jsonconverter
+else
+    case $ARKI_XARGS_FORMAT in
+        BUFR) dataconverter=cat ;;
+        VM2) dataconverter=meteo-vm2-to-bufr ;;
+    esac
+    $dataconverter < $1
 fi
-
-jsontype=$1
-filtertype=$2
-
-case $jsontype in
-    dbajson) jsonconverter="dbamsg dump --json" ;;
-    geojson) jsonconverter="bufr2json" ;;
-esac
-
-case $filtertype in
-    skip) qcfilter="dba_qcfilter" ;;
-    none) qcfilter="cat" ;;
-    preserve) filter="dba_qcfilter --preserve" ;;
-esac
-
-case $ARKI_XARGS_FORMAT in
-    BUFR) dataconverter=cat ;;
-    VM2) dataconverter=meteo-vm2-to-bufr ;;
-esac
-
-$dataconverter < $3 | $qcfilter | $jsonconverter
