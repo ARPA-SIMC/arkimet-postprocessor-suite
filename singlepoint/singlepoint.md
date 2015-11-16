@@ -8,18 +8,18 @@ arkimet-postprocess-singlepoint - get a single point from a GRIB file in BUFR, C
 
 # SYNOPSYS
 
-`singlepoint [ -z near|bilin ] [ -f BUFR|CREX|JSON ] LON LAT`
+`singlepoint [ -z near|bilin ] [ -f bufr|crex|geojson|dbajson ] LON LAT`
 
 # DESCRIPTION
 
 This arkimet postprocessor get a single point from a GRIB file. The output
-format is BUFR, CREX or JSON.
+format is BUFR, CREX or JSON (GeoJSON or DB-All.e JSON).
 
 It is based on `vg6d_getpoint`
 
 # SEE ALSO
 
-`arki-query` (1), `vg6d_getpoint` (1), `bufr2json` (1).
+`arki-query` (1), `vg6d_getpoint` (1), `bufr2json` (1), `dbamsg` (1).
 
 # AUTHOR
 

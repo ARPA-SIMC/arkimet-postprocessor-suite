@@ -21,7 +21,7 @@
 
 function print_usage()
 {
-	printf "Usage $0 [ -z near|bilin ] [ -f BUFR|CREX|JSON ] LON LAT\n"
+	printf "Usage $0 [ -z near|bilin ] [ -f bufr|crex|geojson|dbajson ] LON LAT\n"
 }
 
 if [ x"$ARKI_XARGS_FORMAT" == x ]
@@ -52,16 +52,20 @@ then
 				;;
 			f)
 				case $OPTARG in
-					bufr|BUFR)
+                    bufr)
 						f=BUFR
 						;;
-					crex|CREX)
+                    crex)
 						f=CREX
 						;;
-					geojson|json|JSON)
+                    geojson)
 						f=BUFR
 						formatter=bufrj2son
 						;;
+                    dbajson)
+                        f=BUFR
+                        formatter="dbamsg dump --json"
+                        ;;
 					*)
 						print_usage >&2
 						exit 1
