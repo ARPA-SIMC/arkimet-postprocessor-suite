@@ -67,11 +67,16 @@ then
         preserve) qcfilter="dba_qcfilter --preserve" ;;
     esac
 
-    exec arki-xargs --max-size=1M $0 | $qcfilter | $jsonconverter
+    exec arki-xargs --time-interval=minute $0 | $qcfilter | $jsonconverter
 else
     case $ARKI_XARGS_FORMAT in
         BUFR) dataconverter=cat ;;
-        VM2) dataconverter=meteo-vm2-to-bufr ;;
+        VM2)
+            tempfile="$(mktemp --suffix .sqlite3)" || exit 1
+            meteo-vm2-to-bufr < $1 | dbadb import --fast --overwrite --wipe-first --dsn=sqlite:${tempfile}
+            dbadb export --dsn=sqlite:${tempfile}
+            rm -f $tempfile
+            ;;
     esac
     $dataconverter < $1
 fi
