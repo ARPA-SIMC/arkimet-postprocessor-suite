@@ -17,6 +17,7 @@ Suite of Arkimet postprocessors
 * subarea
 * singlepoint
 * bufr
+* json
 
 
 %prep
@@ -50,6 +51,10 @@ rm -rf %{buildroot}
 %{_libdir}/arkimet/bufr
 %dir %{_datadir}/doc/%{name}
 %doc %{_datadir}/doc/%{name}/bufr.md
+
+%{_libdir}/arkimet/json
+%dir %{_datadir}/doc/%{name}
+%doc %{_datadir}/doc/%{name}/json.md
 
 
 %changelog
