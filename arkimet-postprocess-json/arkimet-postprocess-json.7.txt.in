@@ -1,0 +1,40 @@
+arkimet-postprocess-json (7)
+============================
+
+NAME
+----
+arkimet-postprocess-json - arkimet postprocessor to serialize BUFR and GRIB data in JSON format.
+
+SYNOPSYS
+--------
+*@POSTPROCDIR@/json* [LON LAT]
+
+DESCRIPTION
+-----------
+This manual page explains how to use the JSON postprocessor.
+
+*arkimet-postprocess-json* converts BUFR, GRIB1 and GRIB2 files in 
+JSON format. The GRIB messages are first converted in BUFR messages
+(using *arki-xargs* to limit the memory usage). Then, the BUFR
+messages are converted to JSON.
+
+*LON* and *LAT* can be specified to extract a singlepoint from a GRIB file
+
+The postprocessor is invoked by *arki-query*:
+
+----
+arki-query --postproc="json [LON LAT]" QUERY DATASET
+----
+
+
+SEE ALSO
+--------
+*bufr2json* (1), *dba_qcfilter* (1)
+
+AUTHOR
+------
+Written by Emanuele Di Giacomo <edigiacomo@arpa.emr.it>
+
+COPYING
+-------
+Copyright \(C) 2012,2013 ARPA-SIMC <urpsim@smr.arpa.emr.it>

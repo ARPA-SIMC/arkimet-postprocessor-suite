@@ -1,0 +1,10 @@
+#!/bin/bash
+
+@PKGLIBDIR@/bufr2chunks "$@" | dba_qcfilter | bufr2json
+
+for s in ${PIPESTATUS[*]}
+do
+    [[ x$s = x0 ]] || exit 2
+done
+
+exit 0

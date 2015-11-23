@@ -1,0 +1,3 @@
+- Remove GRIB support to work in pipe
+- Filter invalid data with libsim (dba_qcfilter)
+- Option for preserve wrong data (see dba_qcfilter)
