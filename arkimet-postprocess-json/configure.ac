@@ -34,6 +34,11 @@ if test x$BUFR2JSON = x
 then
 	AC_MSG_ERROR([bufr2json not found])
 fi
+AC_PATH_PROG([DBAMSG], [dbamsg])
+if test x$DBAMSG = x
+then
+	AC_MSG_ERROR([dbamsg not found])
+fi
 AC_PATH_PROG([asciidoc], [asciidoc])
 if test "x$asciidoc" = x
 then

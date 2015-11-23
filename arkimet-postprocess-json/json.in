@@ -1,6 +1,55 @@
 #!/bin/bash
 
-@PKGLIBDIR@/bufr2chunks "$@" | dba_qcfilter | bufr2json
+print_usage()
+{
+	printf "Usage $0 [ -f geojson|dbajson ] [ -q skip|none|preserve ] [ LON LAT ]"
+}
+
+formatter="bufr2json"
+qcfilter="dba_qcfilter"
+
+while getopts "hf:q:" opt
+do
+    case $opt in
+        h)
+            print_usage
+            exit 0
+            ;;
+        f)
+            case $OPTARG in
+                geojson)
+                    formatter="bufr2json"
+                    ;;
+                dbajson)
+                    formatter="dbamsg dump --json"
+                    ;;
+                *)
+                    print_usage
+                    exit 1
+                    ;;
+            esac
+            ;;
+        q)
+            case $OPTARG in
+                skip)
+                    qcfilter="dba_qcfilter"
+                    ;;
+                none)
+                    qcfilter="cat"
+                    ;;
+                preserve)
+                    qcfilter="dba_qcfilter --preserve"
+                    ;;
+                *)
+                    print_usage
+                    exit 1
+                    ;;
+            esac
+    esac
+done
+shift $(($OPTIND - 1))
+
+@PKGLIBDIR@/bufr2chunks "$@" | $qcfilter | $formatter
 
 for s in ${PIPESTATUS[*]}
 do
