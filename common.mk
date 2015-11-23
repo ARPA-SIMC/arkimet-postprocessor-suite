@@ -1,1 +1,0 @@
-postprocdir = $(libdir)/arkimet

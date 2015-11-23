@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ x"$ARKI_XARGS_FORMAT" == x ]
+then
+    exec arki-xargs -s 1MB -- $0 $@
+fi
+
+case $ARKI_XARGS_FORMAT in
+    GRIB1|GRIB2)
+        if [[ $# -eq 3 ]]
+        then
+            vg6d_getpoint -a $1 -b $2 -- $3 - || exit 1
+        else
+            vg6d_getpoint --trans-type=metamorphosis --sub-type=all --output-format=BUFR -- $1 - || exit 1
+        fi
+        ;;
+    BUFR)
+        cat $1 || exit 1
+        ;;
+    VM2)
+        meteo-vm2-to-bufr < $1 || exit 1
+        ;;
+    *) exit 2 ;;
+esac
+
+exit 0

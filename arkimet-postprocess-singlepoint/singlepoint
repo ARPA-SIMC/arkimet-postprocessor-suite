@@ -1,0 +1,97 @@
+#!/bin/bash
+# singlepoint - single point from a GRIB file
+#
+# Copyright (C) 2013  ARPA-SIM <urpsim@smr.arpa.emr.it>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+#
+# Author: Emanuele Di Giacomo <edigiacomo@arpa.emr.it>
+
+function print_usage()
+{
+	printf "Usage $0 [ -z near|bilin ] [ -f BUFR|CREX|JSON ] LON LAT\n"
+}
+
+if [ x"$ARKI_XARGS_FORMAT" == x ]
+then
+	z=bilin
+	f=BUFR
+	formatter=cat
+	while getopts "hz:f:" opt
+	do
+		case $opt in
+			h)
+				print_usage
+				exit 0
+				;;
+			z)
+				case $OPTARG in
+					bilin)
+						z=bilin
+						;;
+					near)
+						z=near
+						;;
+					*)
+						print_usage >&2
+						exit 1
+						;;
+				esac
+				;;
+			f)
+				case $OPTARG in
+					bufr|BUFR)
+						f=BUFR
+						;;
+					crex|CREX)
+						f=CREX
+						;;
+					geojson|json|JSON)
+						f=BUFR
+						formatter=/usr/bin/bufr2json
+						;;
+					*)
+						print_usage >&2
+						exit 1
+						;;
+				esac
+				;;
+			*)
+				print_usage >&2
+				exit 1
+				;;
+		esac
+	done
+
+	shift $(($OPTIND - 1))
+
+	ilon=$1
+	ilat=$2
+
+	[[ $# -eq 2 ]] || { print_usage >&2 ; exit 1 ; }
+	/usr/bin/arki-xargs --time-interval=hour -- $0 $z $f $ilon $ilat | $formatter
+	res="${PIPESTATUS[*]}"
+	[[ x$res = "x0 0" ]] || exit 1
+	exit 0
+fi
+
+z=$1
+f=$2
+ilon=$3
+ilat=$4
+infile=$5
+
+LOG4C_APPENDER=stderr LOG4C_PRIORITY=ERROR \
+/usr/bin/vg6d_getpoint -v inter -z $z -f $f -a $ilon -b $ilat $infile -

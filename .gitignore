@@ -5,12 +5,6 @@
 /configure
 /install-sh
 /missing
-/singlepoint/test-singlepoint.sh.log
-/singlepoint/test-singlepoint.sh.trs
-/singlepoint/test-suite.log
-/subarea/test-subarea.sh.log
-/subarea/test-subarea.sh.trs
-/subarea/test-suite.log
 /test-driver
 Makefile
 Makefile.in
