@@ -1,5 +1,5 @@
 Name:           arkimet-postprocess-json
-Version:        0.10
+Version:        0.11
 Release:        1%{?dist}
 Summary:        JSON post processor for arkimet
 
@@ -54,6 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0444,root,root) %{_docdir}/%{name}/*
 
 %changelog
+* Mon Nov 23 2015 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.11-1
+- DB-All.e JSON format and optional qcfilter
 * Mon Nov 23 2015 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.10-1
 - dba_qcfilter
 * Tue Jan 29 2014 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.9-2
