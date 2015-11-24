@@ -4,19 +4,14 @@ postproc_SCRIPTS = singlepoint
 
 TESTS = test-singlepoint.sh
 
-nodist_doc_DATA = \
-		  arkimet-postprocess-singlepoint.7.txt \
-		  arkimet-postprocess-singlepoint.7.html
+dist_doc_DATA = README.asciidoc README.html
 
-nodist_man7_MANS = arkimet-postprocess-singlepoint.7
+dist_man7_MANS = arkimet-postprocess-singlepoint.7
 
-arkimet-postprocess-singlepoint.7.txt: arkimet-postprocess-singlepoint.7.txt.in
-	cp $< $@
+README.html: README.asciidoc
+	asciidoc -a toc -o $(builddir)/$@ $<
 
-arkimet-postprocess-singlepoint.7.html: arkimet-postprocess-singlepoint.7.txt
-	$(ASCIIDOC) -a toc $<
-
-arkimet-postprocess-singlepoint.7: arkimet-postprocess-singlepoint.7.txt
+arkimet-postprocess-singlepoint.7: README.asciidoc
 	a2x -dmanpage -fmanpage -D $(builddir) $<
 
 singlepoint: singlepoint.in
@@ -34,17 +29,6 @@ test-singlepoint.sh: test-singlepoint.sh.in
 		$< > $@
 	chmod ugo+x $@
 
-EXTRA_DIST = \
-	     singlepoint.in \
-	     test-singlepoint.sh.in \
-	     test.grib1 \
-	     arkimet-postprocess-singlepoint.7.txt.in
+EXTRA_DIST = singlepoint.in test-singlepoint.sh.in test.grib1
 
-CLEANFILES = \
-	     singlepoint \
-	     test-singlepoint.sh \
-	     arkimet-postprocess-singlepoint.7.txt \
-	     arkimet-postprocess-singlepoint.7.html \
-	     arkimet-postprocess-singlepoint.7 \
-	     arkimet-postprocess-singlepoint.7.xml
-
+CLEANFILES = singlepoint test-singlepoint.sh
