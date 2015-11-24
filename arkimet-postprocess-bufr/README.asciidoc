@@ -7,7 +7,7 @@ arkimet-postprocess-bufr - arkimet postprocessor to serialize VM2 data in JSON f
 
 SYNOPSYS
 --------
-*@POSTPROCDIR@/bufr*
+*bufr*
 
 DESCRIPTION
 -----------

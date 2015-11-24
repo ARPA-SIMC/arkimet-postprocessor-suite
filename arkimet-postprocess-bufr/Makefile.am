@@ -1,36 +1,11 @@
 postprocdir = $(libdir)/arkimet
 
-postproc_SCRIPTS = bufr
+dist_postproc_SCRIPTS = bufr
 
-bufr: bufr.in
-	sed -e 's,[@]PKGLIBDIR[@],$(pkglibexecdir),g' $< > $@
+dist_doc_DATA = README.asciidoc README.html arkimet-postprocess-bufr.7
 
-nodist_doc_DATA = \
-		  arkimet-postprocess-bufr.7.txt \
-		  arkimet-postprocess-bufr.7.html
+README.html: README.asciidoc
+	asciidoc -a toc -o $(builddir)/$@ $<
 
-nodist_man7_MANS = \
-		   arkimet-postprocess-bufr.7
-
-%.7.txt: %.7.txt.in
-	sed \
-		-e 's,[@]PKGLIBDIR[@],$(pkglibexecdir),g' \
-		-e 's,[@]POSTPROCDIR[@],$(postprocdir),g' \
-		$< > $@
-
-%.7.html: %.7.txt
-	asciidoc -a toc $<
-
-%.7: %.7.txt
-	a2x -dmanpage -fmanpage $<
-
-EXTRA_DIST = \
-	     bufr.in \
-	     arkimet-postprocess-bufr.7.txt.in
-
-CLEANFILES = \
-	     bufr \
-	     arkimet-postprocess-bufr.7.txt \
-	     arkimet-postprocess-bufr.7.html \
-	     arkimet-postprocess-bufr.7.xml \
-	     arkimet-postprocess-bufr.7
+arkimet-postprocess-bufr.7: README.asciidoc
+	a2x -dmanpage -fmanpage -D $(builddir) $<
