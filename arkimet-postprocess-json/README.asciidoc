@@ -7,7 +7,7 @@ arkimet-postprocess-json - arkimet postprocessor to serialize BUFR and GRIB data
 
 SYNOPSYS
 --------
-*@POSTPROCDIR@/json* [ -f geojson|dbajson ] [ -q skip|none|preserve ] [LON LAT]
+*json* [ -f geojson|dbajson ] [ -q skip|none|preserve ] [LON LAT]
 
 DESCRIPTION
 -----------
