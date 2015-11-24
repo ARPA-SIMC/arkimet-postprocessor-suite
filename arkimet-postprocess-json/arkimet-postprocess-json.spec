@@ -4,7 +4,7 @@ Release:        1%{?dist}
 Summary:        JSON post processor for arkimet
 
 License:        GPLv2+
-URL:            http://www.arpa.emr.it/sim
+URL:            https://github.com/ARPA-SIMC/arkimet-postprocessor-suite
 Source:         %{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 

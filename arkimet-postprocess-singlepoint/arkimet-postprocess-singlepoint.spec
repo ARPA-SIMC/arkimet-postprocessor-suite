@@ -4,7 +4,7 @@ Release:        2%{?dist}
 Summary:        Singlepoint postprocessor for arkimet
 Group:          Applications/Meteo
 License:        GPL
-URL:            http://www.arpa.emr.it/
+URL:            https://github.com/ARPA-SIMC/arkimet-postprocessor-suite
 Vendor:         Emanuele Di Giacomo <edigiacomo@arpa.emr.it>
 Packager:       Daniele Branchini <dbranchini@arpa.emr.it>
 Source:         %{name}-%{version}.tar.gz
