@@ -1,6 +1,6 @@
 Name:           arkimet-postprocess-singlepoint
 Version:        0.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Singlepoint postprocessor for arkimet
 Group:          Applications/Meteo
 License:        GPL
@@ -49,12 +49,13 @@ Summary:        Documentation for arkimet-postprocess-singlepoint
 Documentation for arkimet-postprocess-singlepoint
 
 %files doc
-%doc %{_mandir}/man7/arkimet-postprocess-singlepoint.7.gz
+%doc %{_mandir}/man7/*
 %dir %{_datadir}/doc/%{name}
-%doc %{_datadir}/doc/%{name}/arkimet-postprocess-singlepoint.7.txt
-%doc %{_datadir}/doc/%{name}/arkimet-postprocess-singlepoint.7.html
+%doc %{_datadir}/doc/%{name}/*
 
 %changelog
+* Tue Nov 24 2014 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.3-2%{dist}
+- Documentation files
 * Wed Feb 19 2014 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.3-1%{dist}
 - BUFR, CREX and JSON formats
 - nearest point and bilinear interpolation

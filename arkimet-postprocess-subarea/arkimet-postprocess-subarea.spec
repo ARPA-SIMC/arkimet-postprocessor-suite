@@ -1,6 +1,6 @@
 Name:           arkimet-postprocess-subarea
 Version:        0.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Subarea postprocessor for arkimet
 Group:          Applications/Meteo
 License:        GPL
@@ -49,11 +49,12 @@ Summary:        Documentation for arkimet-postprocess-subarea
 Documentation for arkimet-postprocess-subarea
 
 %files doc
-%doc %{_mandir}/man7/arkimet-postprocess-subarea.7.gz
+%doc %{_mandir}/man7/*
 %dir %{_datadir}/doc/%{name}
-%doc %{_datadir}/doc/%{name}/arkimet-postprocess-subarea.7.txt
-%doc %{_datadir}/doc/%{name}/arkimet-postprocess-subarea.7.html
+%doc %{_datadir}/doc/*
 
 %changelog
+* Tue Nov 24 2014 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.2-3%{dist}
+- Documentation files
 * Mon Sep 23 2013 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.2-2%{dist}
 - Improved postprocessor
