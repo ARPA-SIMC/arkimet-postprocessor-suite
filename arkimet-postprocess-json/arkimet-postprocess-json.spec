@@ -1,5 +1,5 @@
 Name:           arkimet-postprocess-json
-Version:        0.12
+Version:        0.13
 Release:        1%{?dist}
 Summary:        JSON post processor for arkimet
 
@@ -54,6 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0444,root,root) %{_docdir}/%{name}/*
 
 %changelog
+* Thu Mar 03 2016 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.13-1
+- Option -r
 * Thu Mar 03 2016 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.12-1
 - Do report when converting from VM2 
 * Mon Nov 23 2015 Emanuele Di Giacomo <edigiacomo@arpa.emr.it> - 0.11-1
