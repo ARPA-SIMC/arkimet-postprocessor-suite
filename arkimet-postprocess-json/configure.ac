@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT([arkimet-postprocess-json], [0.11], [edigiacomo@arpa.emr.it])
+AC_INIT([arkimet-postprocess-json], [0.12], [edigiacomo@arpa.emr.it])
 AM_INIT_AUTOMAKE([foreign])
 
 AC_CONFIG_SRCDIR([configure.ac])
