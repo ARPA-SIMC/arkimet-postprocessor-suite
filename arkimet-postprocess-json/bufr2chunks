@@ -2,8 +2,18 @@
 
 if [ x"$ARKI_XARGS_FORMAT" == x ]
 then
-    exec arki-xargs -s 1MB -- $0 $@
+    exec arki-xargs --time-interval=minute -- $0 $@
 fi
+
+
+trap cleanup EXIT
+
+cleanup()
+{
+    [[ -e "$dbadb" ]] && rm -f "$dbadb"
+}
+
+dbadb=$(mktemp arkimet-postprocess-json.XXXXXXXXXX.sqlite3)
 
 case $ARKI_XARGS_FORMAT in
     GRIB1|GRIB2)
@@ -18,7 +28,8 @@ case $ARKI_XARGS_FORMAT in
         cat $1 || exit 1
         ;;
     VM2)
-        meteo-vm2-to-bufr < $1 || exit 1
+        meteo-vm2-to-bufr < $1 | dbadb --wipe-first --dsn=sqlite:$dbadb import || exit 1
+        dbadb --dsn=sqlite:$dbadb export || exit 1
         ;;
     *) exit 2 ;;
 esac
