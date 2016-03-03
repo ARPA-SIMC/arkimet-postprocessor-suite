@@ -7,7 +7,7 @@ arkimet-postprocess-json - arkimet postprocessor to serialize BUFR and GRIB data
 
 SYNOPSYS
 --------
-*json* [ -f geojson|dbajson ] [ -q skip|none|preserve ] [LON LAT]
+*json* [ -r ] [ -f geojson|dbajson ] [ -q skip|none|preserve ] [LON LAT]
 
 DESCRIPTION
 -----------
@@ -19,6 +19,11 @@ JSON format. The GRIB messages are first converted in BUFR messages
 messages are converted to JSON.
 
 *LON* and *LAT* can be specified to extract a singlepoint from a GRIB file
+
+The formats available are
+
+- *geojson*: GeoJSON format
+- *dbajson*: DB-All.e JSON format (use *-r* to group data by station)
 
 The postprocessor is invoked by *arki-query*:
 

@@ -2,7 +2,20 @@
 
 if [ x"$ARKI_XARGS_FORMAT" == x ]
 then
-    exec arki-xargs --time-interval=minute -- $0 $@
+    do_report=no
+    while getopts "r" opt
+    do
+        case $opt in
+            r) do_report=yes ;;
+            *) exit 1 ;;
+        esac
+    done
+    if [[ "$do_report" = "yes" ]]
+    then
+        exec arki-xargs --time-interval=minute -- $0 $@
+    else
+        exec arki-xargs -s 1MB -- $0 $@
+    fi
 fi
 
 
@@ -13,7 +26,20 @@ cleanup()
     [[ -e "$dbadb" ]] && rm -f "$dbadb"
 }
 
-dbadb=$(mktemp arkimet-postprocess-json.XXXXXXXXXX.sqlite3)
+do_report=no
+while getopts "r" opt
+do
+    case $opt in
+        r) do_report=yes ;;
+        *) exit 1 ;;
+    esac
+done
+shift $(($OPTIND - 1))
+
+if [[ "$do_report" = "yes" ]]
+then
+    dbadb=$(mktemp arkimet-postprocess-json.XXXXXXXXXX.sqlite3) || exit 1
+fi
 
 case $ARKI_XARGS_FORMAT in
     GRIB1|GRIB2)
@@ -28,8 +54,13 @@ case $ARKI_XARGS_FORMAT in
         cat $1 || exit 1
         ;;
     VM2)
-        meteo-vm2-to-bufr < $1 | dbadb --wipe-first --dsn=sqlite:$dbadb import || exit 1
-        dbadb --dsn=sqlite:$dbadb export || exit 1
+        if [[ "$do_report" = "yes" ]]
+        then
+            meteo-vm2-to-bufr < $1 | dbadb --wipe-first --dsn=sqlite:$dbadb import || exit 1
+            dbadb --dsn=sqlite:$dbadb export || exit 1
+        else
+            meteo-vm2-to-bufr < $1
+        fi
         ;;
     *) exit 2 ;;
 esac

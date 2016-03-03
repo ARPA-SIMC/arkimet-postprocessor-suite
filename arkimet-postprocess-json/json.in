@@ -2,13 +2,14 @@
 
 print_usage()
 {
-	printf "Usage $0 [ -f geojson|dbajson ] [ -q skip|none|preserve ] [ LON LAT ]"
+	printf "Usage $0 [ -r ] [ -f geojson|dbajson ] [ -q skip|none|preserve ] [ LON LAT ]"
 }
 
 formatter="bufr2json"
 qcfilter="dba_qcfilter"
+do_report="no"
 
-while getopts "hf:q:" opt
+while getopts "hf:q:r" opt
 do
     case $opt in
         h)
@@ -45,11 +46,18 @@ do
                     exit 1
                     ;;
             esac
+            ;;
+        r)
+            echo "DO REPORT" >&2
+            do_report="yes"
+            ;;
     esac
 done
 shift $(($OPTIND - 1))
 
-@PKGLIBDIR@/bufr2chunks "$@" | $qcfilter | $formatter
+[[ "$do_report" = yes ]] && options="-r"
+
+@PKGLIBDIR@/bufr2chunks "$options" "$@" | $qcfilter | $formatter
 
 for s in ${PIPESTATUS[*]}
 do
