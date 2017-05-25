@@ -1,0 +1,33 @@
+arkimet-postprocess-bufr (7)
+============================
+
+NAME
+----
+arkimet-postprocess-bufr-filter - arkimet postprocessor to filter BUFR data using *dbadb* query
+
+SYNOPSYS
+--------
+*bufr-filter* [query]...
+
+DESCRIPTION
+-----------
+*arkimet-postprocess-bufr-filter* filter BUFR data using *dbadb* query
+
+The postprocessor is invoked by *arki-query*:
+
+----
+arki-query --postproc="bufr-filter [query]..." QUERY DATASET
+----
+
+
+SEE ALSO
+--------
+*dbadb* (1)
+
+AUTHOR
+------
+Written by Emanuele Di Giacomo <edigiacomo@arpae.it>
+
+COPYING
+-------
+Copyright \(C) 2017 ARPA-SIMC <urpsimc@arpae.it>
