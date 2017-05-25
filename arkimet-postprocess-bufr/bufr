@@ -27,7 +27,7 @@ print_usage()
 if [ x"$ARKI_XARGS_FORMAT" == x ]
 then
     [[ $# -eq 0 ]] || { print_usage >&2 ; exit 1 ; }
-    arki-xargs --time-interval=minute -- $0
+    exec arki-xargs --time-interval=minute -- $0
 fi
 
 tempfile="$(mktemp --suffix .sqlite3)" || exit 1
