@@ -6,3 +6,4 @@ Arkimet postprocessors
 - `singlepoint`: extract a point from GRIB
 - `bufr`: convert data to BUFR
 - `json`: convert data to JSON
+- `bufr-filter`: filter BUFR data
