@@ -80,5 +80,9 @@ then
     AC_MSG_ERROR([a2x not found])
 fi
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([arkimet-postprocess-bufr-filter/Makefile
+                 arkimet-postprocess-bufr/Makefile
+                 arkimet-postprocess-json/Makefile
+                 arkimet-postprocess-singlepoint/Makefile
+                 arkimet-postprocess-subarea/Makefile])
 AC_OUTPUT
