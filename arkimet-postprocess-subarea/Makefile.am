@@ -1,6 +1,6 @@
 postprocdir = $(libdir)/arkimet
 
-dist_postproc_SCRIPTS = $(top_srcdir)/subarea
+dist_postproc_SCRIPTS = $(srcdir)/subarea
 
 TESTS = test-subarea.sh
 
