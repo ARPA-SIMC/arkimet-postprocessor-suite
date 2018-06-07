@@ -1,5 +1,7 @@
 postprocdir = $(libdir)/arkimet
 
+pkgdocdir = $(docdir)/json
+
 postproc_SCRIPTS = json
 
 pkglibexec_SCRIPTS = bufr2chunks
@@ -7,7 +9,7 @@ pkglibexec_SCRIPTS = bufr2chunks
 json: json.in
 	sed -e 's,[@]PKGLIBDIR[@],$(pkglibexecdir),g' $< > $@
 
-dist_doc_DATA = README.asciidoc README.html
+dist_pkgdoc_DATA = README.asciidoc README.html
 
 dist_man7_MANS = arkimet-postprocess-json.7
 
