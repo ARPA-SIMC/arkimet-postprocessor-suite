@@ -6,8 +6,6 @@ AC_INIT([arkimet-postprocess-suite], [0.1], [edigiacomo@arpae.it])
 AM_INIT_AUTOMAKE([foreign])
 
 AC_CONFIG_SRCDIR([configure.ac])
-AC_CONFIG_HEADERS([config.h])
-AC_PROG_CXX
 
 # all
 AC_PATH_PROG([ARKI_XARGS], [arki-xargs])
