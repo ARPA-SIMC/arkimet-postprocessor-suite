@@ -13,7 +13,7 @@ Source0:        https://github.com/arpa-simc/%{name}/archive/v%{version}-%{relea
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  arkimet
-BuildRequires:  meteo-vm2
+BuildRequires:  meteo-vm2-utils
 BuildRequires:  dballe
 BuildRequires:  libsim
 BuildRequires:  bufr2json
