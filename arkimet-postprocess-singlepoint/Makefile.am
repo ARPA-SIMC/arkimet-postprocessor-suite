@@ -1,10 +1,12 @@
 postprocdir = $(libdir)/arkimet
 
+pkgdocdir = $(docdir)/singlepoint
+
 postproc_SCRIPTS = singlepoint
 
 TESTS = test-singlepoint.sh
 
-dist_doc_DATA = README.asciidoc README.html
+dist_pkgdoc_DATA = README.asciidoc README.html
 
 dist_man7_MANS = arkimet-postprocess-singlepoint.7
 

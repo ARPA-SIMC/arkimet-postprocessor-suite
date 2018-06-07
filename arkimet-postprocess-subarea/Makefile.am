@@ -1,10 +1,12 @@
 postprocdir = $(libdir)/arkimet
 
-dist_postproc_SCRIPTS = $(top_srcdir)/subarea
+pkgdocdir = $(docdir)/subarea
+
+dist_postproc_SCRIPTS = $(srcdir)/subarea
 
 TESTS = test-subarea.sh
 
-dist_doc_DATA = README.asciidoc README.html
+dist_pkgdoc_DATA = README.asciidoc README.html
 
 dist_man7_MANS = arkimet-postprocess-subarea.7
 
