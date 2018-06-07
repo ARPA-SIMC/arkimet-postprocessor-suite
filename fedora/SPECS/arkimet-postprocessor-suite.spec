@@ -10,6 +10,8 @@ Summary:        arkimet postprocessor suite
 License:        GPLv2+
 URL:            https://github.com/arpa-simc/%{name}
 Source0:        https://github.com/arpa-simc/%{name}/archive/v%{version}-%{releaseno}.tar.gz#/%{srcarchivename}.tar.gz
+BuildRequires:  autoconf
+BuildRequires:  automake
 BuildRequires:  arkimet
 BuildRequires:  meteo-vm2
 BuildRequires:  dballe
