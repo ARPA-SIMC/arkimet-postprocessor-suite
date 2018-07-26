@@ -13,11 +13,11 @@ DESCRIPTION
 -----------
 This arkimet postprocessor crop a subarea of a GRIB file. 
 
-It is based on *vg6d_subarea*
+It is based on *vg6d_transform*
 
 SEE ALSO
 --------
-*arki-query* (1), *vg6d_subarea* (1).
+*arki-query* (1), *vg6d_transform* (1).
 
 AUTHOR
 ------
