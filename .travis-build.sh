@@ -3,7 +3,7 @@ set -ex
 
 image=$1
 
-if [[ $image =~ ^centos: ]]
+if [[ $image =~ ^centos:7 ]]
 then
     pkgcmd="yum"
     builddep="yum-builddep"
@@ -14,12 +14,16 @@ then
     yum install -y yum-plugin-copr
     yum install -y git
     yum copr enable -y simc/stable epel-7
-elif [[ $image =~ ^fedora: ]]
+elif [[ $image =~ ^fedora: || $image =~ ^centos: ]]
 then
     pkgcmd="dnf"
     builddep="dnf builddep"
     sed -i '/^tsflags=/d' /etc/dnf/dnf.conf
-    dnf install --allowerasing -y @buildsys-build
+    if [[ $image =~ ^centos: ]]
+        dnf install -y rpm-build make
+    else
+        dnf install --allowerasing -y @buildsys-build
+    fi
     dnf install -y 'dnf-command(builddep)'
     dnf install -y git
     dnf copr enable -y simc/stable
