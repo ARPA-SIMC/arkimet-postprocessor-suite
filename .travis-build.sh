@@ -14,17 +14,25 @@ then
     yum install -y yum-plugin-copr
     yum install -y git
     yum copr enable -y simc/stable epel-7
-elif [[ $image =~ ^fedora: || $image =~ ^centos: ]]
+elif [[ $image =~ ^centos:8 ]]
 then
     pkgcmd="dnf"
     builddep="dnf builddep"
     sed -i '/^tsflags=/d' /etc/dnf/dnf.conf
-    if [[ $image =~ ^centos: ]]
-    then
-        dnf install -y rpm-build make
-    else
-        dnf install --allowerasing -y @buildsys-build
-    fi
+    dnf install -q -y epel-release
+    dnf install -q -y 'dnf-command(config-manager)'
+    dnf config-manager --set-enabled PowerTools
+    dnf groupinstall -q -y "Development Tools"
+    dnf install -q -y 'dnf-command(builddep)'
+    dnf install -q -y git
+    dnf install -q -y rpmdevtools
+    dnf copr enable -y simc/stable
+elif [[ $image =~ ^fedora: ]]
+then
+    pkgcmd="dnf"
+    builddep="dnf builddep"
+    sed -i '/^tsflags=/d' /etc/dnf/dnf.conf
+    dnf install --allowerasing -y @buildsys-build
     dnf install -y 'dnf-command(builddep)'
     dnf install -y git
     dnf copr enable -y simc/stable
