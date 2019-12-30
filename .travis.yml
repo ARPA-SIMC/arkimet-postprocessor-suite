@@ -17,7 +17,6 @@ env:
 
 matrix:
     allow_failures:
-        - env: DOCKER_IMAGE=centos:8
         - env: DOCKER_IMAGE=fedora:rawhide
 
 before_deploy:
