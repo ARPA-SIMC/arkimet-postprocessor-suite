@@ -20,6 +20,7 @@ then
     builddep="dnf builddep"
     sed -i '/^tsflags=/d' /etc/dnf/dnf.conf
     if [[ $image =~ ^centos: ]]
+    then
         dnf install -y rpm-build make
     else
         dnf install --allowerasing -y @buildsys-build
