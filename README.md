@@ -1,3 +1,5 @@
+[![Build Status](https://badges.herokuapp.com/travis/ARPA-SIMC/arkimet-postprocessor-suite?branch=master&env=DOCKER_IMAGE=fedora:33&label=fedora33)](https://travis-ci.org/ARPA-SIMC/arkimet-postprocessor-suite)
+
 # Arkimet postprocessors suite
 
 ## Build status
