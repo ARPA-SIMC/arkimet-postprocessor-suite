@@ -29,10 +29,10 @@ then
 fi
 
 # subarea
-AC_PATH_PROG([VG6D_SUBAREA], [vg6d_subarea])
-if test x$VG6D_SUBAREA = x
+AC_PATH_PROG([VG6D_TRANSFORM], [vg6d_transform])
+if test x$VG6D_TRANSFORM = x
 then
-AC_MSG_ERROR([vg6d_subarea not found])
+AC_MSG_ERROR([vg6d_transform not found])
 fi
 
 # json singlepoint

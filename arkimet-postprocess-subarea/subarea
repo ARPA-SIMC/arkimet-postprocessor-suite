@@ -42,8 +42,9 @@ trap cleanup EXIT
 
 params="-a $1 -b $2 -c $3 -d $4 $5"
 LOG4C_APPENDER=stderr LOG4C_PRIORITY=ERROR \
-vg6d_subarea \
-	-v zoom \
-	-z coord \
-	-a $1 -b $2 -c $3 -d $4 \
+vg6d_transform \
+	--trans-mode=s \
+	--trans-type=zoom \
+	--sub-type=coord \
+	--ilon=$1 --ilat=$2 --flon=$3 --flat=$4 \
 	-- $5 $subareafile && cat $subareafile
