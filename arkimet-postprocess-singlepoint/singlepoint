@@ -94,4 +94,7 @@ ilat=$4
 infile=$5
 
 LOG4C_APPENDER=stderr LOG4C_PRIORITY=ERROR \
-/usr/bin/vg6d_getpoint -v inter -z $z -f $f -a $ilon -b $ilat $infile -
+/usr/bin/vg6d_getpoint \
+	--trans-type=inter --sub-type=$z --output-format=$f \
+	--lon=$ilon --lat=$ilat \
+	$infile -

@@ -16,14 +16,14 @@ BuildRequires:  automake
 BuildRequires:  arkimet
 BuildRequires:  meteo-vm2-utils
 BuildRequires:  dballe
-BuildRequires:  libsim
+BuildRequires:  libsim >= 6.2.0
 BuildRequires:  bufr2json
 BuildRequires:  asciidoc
 BuildRequires:  dba_qcfilter
 Requires:       arkimet
 Requires:       meteo-vm2
 Requires:       dballe
-Requires:       libsim
+Requires:       libsim >= 6.2.0
 Requires:       bufr2json
 Requires:       dba_qcfilter
 
