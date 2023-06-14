@@ -1,10 +1,10 @@
 %global debug_package %{nil}
-%global releaseno 2
+%global releaseno 1
 # Note: define _srcarchivename in Travis build only.
 %{!?srcarchivename: %global srcarchivename %{name}-%{version}-%{releaseno}}
 
 Name:           arkimet-postprocessor-suite
-Version:        0.1
+Version:        0.2
 Release:        %{releaseno}%{?dist}
 Summary:        arkimet postprocessor suite
 License:        GPLv2+
@@ -54,6 +54,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libexecdir}/%{name}/*
 
 %changelog
+* Wed Jun 14 2023 Emanuele Di Giacomo <edigiacomo@arpae.it> - 0.2-1
+- Adapt to new libsim and arkimet (#9)
+
 * Fri Mar 20 2020 Emanuele Di Giacomo <edigiacomo@arpae.it> - 0.1-2
 - Updated requirements
 
