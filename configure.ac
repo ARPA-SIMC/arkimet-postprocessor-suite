@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT([arkimet-postprocessor-suite], [0.2], [edigiacomo@arpae.it])
+AC_INIT([arkimet-postprocessor-suite], [0.3], [edigiacomo@arpae.it])
 AM_INIT_AUTOMAKE([foreign])
 
 AC_CONFIG_SRCDIR([configure.ac])

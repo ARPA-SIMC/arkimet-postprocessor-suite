@@ -4,7 +4,7 @@
 %{!?srcarchivename: %global srcarchivename %{name}-%{version}-%{releaseno}}
 
 Name:           arkimet-postprocessor-suite
-Version:        0.2
+Version:        0.3
 Release:        %{releaseno}%{?dist}
 Summary:        arkimet postprocessor suite
 License:        GPLv2+
@@ -54,6 +54,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libexecdir}/%{name}/*
 
 %changelog
+* Tue Mar 26 2024 Emanuele Di Giacomo <edigiacomo@arpae.it> - 0.3-1
+- In-memory bufr_filter (#11)
+
 * Wed Jun 14 2023 Emanuele Di Giacomo <edigiacomo@arpae.it> - 0.2-1
 - Adapt to new libsim and arkimet (#9)
 
