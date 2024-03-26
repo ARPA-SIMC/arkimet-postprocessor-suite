@@ -29,7 +29,7 @@ then
     exec arki-xargs -s 1M -- $0 $@
 fi
 
-tempfile="$(mktemp --suffix .sqlite3)" || exit 1
+tempfile="$(mktemp --tmpdir=/dev/shm --suffix .sqlite3)" || exit 1
 
 cleanup() { 
     rm -f "${tempfile}"
