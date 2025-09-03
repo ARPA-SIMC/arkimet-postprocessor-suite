@@ -1,8 +1,7 @@
-[![Build Status](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/centos7.png)](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/)
 [![Build Status](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/rocky8.png)](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/)
 [![Build Status](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/rocky9.png)](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/)
-[![Build Status](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/fedora36.png)](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/)
-[![Build Status](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/fedora38.png)](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/)
+[![Build Status](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/fedora40.png)](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/)
+[![Build Status](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/fedora42.png)](https://simc.arpae.it/moncic-ci/arkimet-postprocessor-suite/)
 [![Build Status](https://copr.fedorainfracloud.org/coprs/simc/stable/package/arkimet-postprocessor-suite/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/simc/stable/package/arkimet-postprocessor-suite/)
 
 # Arkimet postprocessors suite
